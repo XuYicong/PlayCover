@@ -25,6 +25,7 @@ struct PlayAppView: View {
                 if viewModel.app.info.bundleIdentifier == "com.miHoYo.GenshinImpact" {
                     removeTwitterSessionCookie()
                 }
+                // Launch the app from a separate thread (allow us to Sayori it if needed)
                 Task(priority: .userInitiated) {
                     if !viewModel.app.isStarting {
                         viewModel.showStartingProgress = true
